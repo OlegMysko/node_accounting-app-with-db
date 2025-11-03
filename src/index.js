@@ -14,7 +14,7 @@ async function start() {
       console.log('Server is running on localhost:5700');
     });
   } catch {
-    console.log('error synchronized')
+    console.log('error synchronized');
   }
 }
 start();

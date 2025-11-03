@@ -109,7 +109,7 @@ function createServer() {
     const updateUser = await models.User.findByPk(id);
 
     res.statusCode = 200;
-    res.json(updateUser.toJSON());
+    res.json(updateUser.toJSON);
   });
 
   // Use express to create a server
@@ -193,7 +193,7 @@ function createServer() {
         category: categoryById[e.categoryId] ?? undefined,
       }));
 
-      res.status(200).send(result.toJSON());
+      res.status(200).send(result);
     } catch {
       res.status(500).send({ message: 'Internal server error' });
     }
@@ -396,7 +396,7 @@ function createServer() {
 
     const newCategory = await models.Category.create({ name });
 
-    res.status(201).json(newCategory.toJSON());
+    res.status(201).json(newCategory);
   });
 
   app.patch('/category/:id', express.json(), async (req, res) => {
@@ -415,7 +415,7 @@ function createServer() {
 
     const category = await models.Category.findByPk(id);
 
-    res.status(200).json(category.toJSON());
+    res.status(200).json(category);
   });
 
   app.delete('/category/:id', async (req, res) => {
