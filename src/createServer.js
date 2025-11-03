@@ -109,7 +109,7 @@ function createServer() {
     const updateUser = await models.User.findByPk(id);
 
     res.statusCode = 200;
-    res.send(updateUser);
+    res.json(updateUser.toJSON());
   });
 
   // Use express to create a server
@@ -193,7 +193,7 @@ function createServer() {
         category: categoryById[e.categoryId] ?? undefined,
       }));
 
-      res.status(200).send(result);
+      res.status(200).send(result.toJSON());
     } catch {
       res.status(500).send({ message: 'Internal server error' });
     }
@@ -324,7 +324,6 @@ function createServer() {
         categoryName = categoryObj.name;
       }
 
-
       const [updatedCount] = await models.Expense.update(
         {
           spentAt,
@@ -340,10 +339,8 @@ function createServer() {
         return res.sendStatus(404);
       }
 
-
       const expense = await models.Expense.findByPk(id);
 
-      
       if (!categoryName && expense.categoryId) {
         const cat = await models.Category.findByPk(expense.categoryId);
 
@@ -399,7 +396,7 @@ function createServer() {
 
     const newCategory = await models.Category.create({ name });
 
-    res.status(201).json(newCategory);
+    res.status(201).json(newCategory.toJSON());
   });
 
   app.patch('/category/:id', express.json(), async (req, res) => {
@@ -418,7 +415,7 @@ function createServer() {
 
     const category = await models.Category.findByPk(id);
 
-    res.status(200).json(category);
+    res.status(200).json(category.toJSON());
   });
 
   app.delete('/category/:id', async (req, res) => {

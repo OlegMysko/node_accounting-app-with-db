@@ -13,6 +13,8 @@ async function start() {
     createServer().listen(5700, () => {
       console.log('Server is running on localhost:5700');
     });
-  } catch {}
+  } catch {
+    console.log('error synchronized')
+  }
 }
 start();
