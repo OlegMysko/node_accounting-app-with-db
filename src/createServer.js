@@ -109,7 +109,7 @@ function createServer() {
     const updateUser = await models.User.findByPk(id);
 
     res.statusCode = 200;
-    res.json(updateUser.toJSON);
+    res.json(updateUser.toJSON());
   });
 
   // Use express to create a server
