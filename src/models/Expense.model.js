@@ -27,8 +27,8 @@ const Expense = sequelize.define(
       type: DataTypes.FLOAT,
       allowNull: false,
     },
-    category: {
-      type: DataTypes.TEXT,
+    categoryId: {
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     note: {
